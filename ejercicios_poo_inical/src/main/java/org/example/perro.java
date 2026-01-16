@@ -47,5 +47,6 @@ public class perro {
     public void setPelo(String pelo){
         pelo = pelo;
     }
-    public  void setPelo
+
 }
+
