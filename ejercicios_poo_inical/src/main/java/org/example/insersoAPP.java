@@ -8,6 +8,6 @@ public class insersoAPP {
 
     autobusInserso alsa = new autobusInserso("5511332","alicante");
 
-    alsa.
+    //alsa.
 
 }
