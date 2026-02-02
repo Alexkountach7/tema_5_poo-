@@ -1,0 +1,58 @@
+@startuml
+
+@startuml
+
+package "org.example" {
+
+    class Jugador {
+        - nombre : String
+        - ranking : int
+        - rival : String
+        --
+        + Jugador(nombre : String, ranking : int)
+        + getNombre() : String
+        + setNombre(nombre : String)
+        + getRival() : String
+        + setRival(rival : String)
+        + getRanking() : int
+        + setRanking(ranking : int)
+        + toString() : String
+    }
+
+    class Partido {
+        - jugador1 : String
+        - jugador2 : String
+        - listaset : ArrayList<Partido>
+        --
+        + Partido(jugador1 : String, jugador2 : String)
+        + getJugador1() : String
+        + setJugador1(jugador1 : String)
+        + getJugador2() : String
+        + setJugador2(jugador2 : String)
+    }
+
+    class Set {
+        - puntosj1 : int
+        - puntosj2 : int
+        --
+        + Set(puntosj1 : int, puntosj2 : int)
+        + getPuntosj1() : int
+        + getPuntosj2() : int
+        + setPuntosj1(puntosj1 : int)
+        + setPuntosj2(puntosj2 : int)
+    }
+
+    class partidos_tenis_app {
+        + main()
+    }
+
+}
+
+Jugador "1" --> "1" Jugador : rival
+Partido "1" --> "*" Partido : listaset
+Partido --> Jugador : usa
+Set --> Partido : pertenece?
+
+@enduml
+
+@enduml

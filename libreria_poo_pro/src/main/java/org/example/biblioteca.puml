@@ -1,0 +1,92 @@
+@startuml
+@startuml
+
+package "org.example" {
+
+    class editorial {
+        - nombre : String
+        - pais : String
+        - librospublicados : ArrayList<libro>
+        --
+        + editorial(nombre : String, pais : String, librospublicados : ArrayList<libro>)
+        + añadirlibro(uno : libro)
+        + borrarlibro(uno : libro)
+        + getNombre() : String
+        + setNombre(nombre : String)
+        + getPais(pais : String) : String
+        + setPais(pais : String)
+        + getLibrospublicados() : ArrayList<libro>
+        + toString() : String
+    }
+
+    class estudiante {
+        - nombre : String
+        - nia : String
+        - curso : String
+        - libroprestado : ArrayList<libro>
+        --
+        + estudiante(nombre : String, nia : String, curso : String)
+        + getNombre() : String
+        + getNia() : String
+        + getCurso() : String
+        + setCurso(curso : String)
+        + setNia(nia : String)
+        + setNombre(nombre : String)
+        + añadirlibro(l : libro)
+        + borrarlibro(l : libro)
+        + toString() : String
+    }
+
+    class libro {
+        - cantidad_libros : int <<static>>
+        - libros_disponibles : int <<static>>
+        - titulo : String
+        - Autor : String
+        - libroID : String
+        - disponible : boolean
+        - estudianteprestado : estudiante
+        - editorial : editorial
+        --
+        + libro(titulo : String, autor : String, editorial : editorial)
+        - calcularid() : String
+        + prestar(uno : estudiante)
+        + devolver()
+        + isDisponible() : boolean
+        + getCantidad_libros() : int <<static>>
+        + getLibros_disponibles() : int <<static>>
+        + getTitulo() : String
+        + setTitulo(titulo : String)
+        + getAutor() : String
+        + setAutor(Autor : String)
+        + getEstudianteprestado() : estudiante
+        + getEditorial() : editorial
+        + toString() : String
+    }
+
+    class prestamo {
+        - estudiante : estudiante
+        - libro : libro
+        - fecha : LocalDateTime
+        --
+        + prestamo(estudiante : estudiante, libro : libro, fecha : LocalDateTime)
+        + toString() : String
+    }
+
+    class libreriaApp {
+        + main()
+    }
+
+    class Main {
+        + main()
+    }
+}
+
+' Relaciones
+editorial "1" -- "*" libro : publica >
+prestamo o--> estudiante
+prestamo o--> libro
+libro -- editorial
+
+@enduml
+
+@enduml
