@@ -16,7 +16,7 @@ public class Instituto {
         this.curso = new ArrayList<>();
     }
 
-    
+
 
     public String getNombre() {
         return nombre;
